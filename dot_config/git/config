@@ -1,0 +1,22 @@
+[user]
+	name = NISHIZAWA Shuntaro
+	email = me@s2n.tech
+	signingKey = 045D846B69EB26FC
+[commit]
+	gpgsign = true
+[push]
+	autoSetupRemote = true
+[pull]
+	rebase = true
+	autostash = true
+[rebase]
+	autostash = true
+[diff]
+	algorithm = histogram
+[init]
+	defaultBranch = main
+[gpg]
+	program = gpg
+[ghq]
+	root = ~/projects
+	user = shun-shobon
