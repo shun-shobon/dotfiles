@@ -1,3 +1,50 @@
+# オプション設定
+# 参照: http://zsh.sourceforge.net/Doc/Release/Options.html
+# ディレクトリの変更
+setopt AUTO_PUSHD                      # cd時に自動的にディレクトリスタックにプッシュ
+# 補完
+setopt ALWAYS_TO_END                   # 補完が完成したらカーソルを単語の末尾に移動
+setopt COMPLETE_IN_WORD                # 補完が開始してもカーソルを移動させない
+setopt GLOB_COMPLETE                   # グロブパターンを展開せず、補完として表示させる
+setopt LIST_PACKED                     # 補完リストの行数を少なくする
+setopt LIST_ROWS_FIRST                 # 補完を水平方向で並べる
+#setopt REC_EXACT                       # 完全一致した場合は補完しない
+# グロブパターン
+# 履歴
+setopt EXTENDED_HISTORY                # 履歴ファイルにタイムスタンプを記録する
+setopt HIST_EXPIRE_DUPS_FIRST          # 履歴がいっぱいのときに重複した履歴を優先して削除する
+setopt HIST_FCNTL_LOCK                 # 履歴ファイルをロックして履歴の破損を回避する
+setopt HIST_IGNORE_DUPS                # 直前の履歴と重複していた場合保存しない
+setopt HIST_IGNORE_SPACE               # スペースから始まる行は保存しない
+setopt HIST_REDUCE_BLANKS              # 履歴保存時に不要なスペースを削除する
+setopt HIST_VERIFY                     # 履歴呼び出し時、即実行せずに編集可能状態にする
+setopt SHARE_HISTORY                   # 複数のzsh間で履歴を共有する
+# 初期化
+# 出入力
+setopt NO_CLOBBER                      # '>'でのリダイレクト時にファイル上書きを許可しない
+setopt CORRECT                         # コマンドのスペルミスを修正する
+setopt IGNORE_EOF                      # EOF<Ctrl+D>でシェルを終了しない
+setopt INTERACTIVE_COMMENTS            # インタラクティブシェル内でもコメントを許可する
+setopt RC_QUOTES                       # シングルクォーテーションを2つ重ねることでシングルクォーテーションをエスケープする
+# ジョブ制御
+setopt AUTO_RESUME                     # サスペンドしたジョブと同じコマンドを実行したときジョブを再開する
+setopt NO_CHECK_JOBS                   # シェルが制御しているジョブをチェックしない
+setopt NO_HUP                          # シェルの終了時にジョブに対してHUPシグナルを送信しない
+setopt LONG_LIST_JOBS                  # ジョブ通知を表で表示する
+# プロンプト
+setopt PROMPT_SUBST                    # パラメーター展開やコマンド置換、算術展開をプロンプトが行う
+# スクリプトと関数
+# シェルエミュレーション
+setopt APPEND_CREATE                   # '>>'でのリダイレクト時にファイルを新しく作成する
+# シェルの状態
+# zle
+
+
+# 履歴の設定
+HISTSIZE=1000
+SAVEHIST=100000
+HISTORY_IGNORE="(ls|cd|pwd|exit)"
+
 # エディタとしてnvimを使用する
 EDITOR="nvim"
 
