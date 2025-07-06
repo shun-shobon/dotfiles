@@ -1,16 +1,14 @@
 # エディタとしてnvimを使用する
 EDITOR="nvim"
 
-# エイリアス設定
-alias ls="lsd"
-alias ll="ls -l"
-alias la="ls -al"
-
 # mise読み込み
 eval "$(mise activate zsh)"
 
 # sheldon読み込み
 eval "$(sheldon source)"
+
+# zabrze読み込み
+eval "$(zabrze init --bind-keys)"
 
 # ローカルユーザーを補完に出さない
 zstyle ':completion:*:*:(ssh|scp|sftp):*' tag-order hosts -users
@@ -21,3 +19,8 @@ compinit
 
 # Starship読み込み
 eval "$(starship init zsh)"
+
+# エイリアス設定
+alias ls="lsd"
+alias ll="ls -l"
+alias la="ls -al"

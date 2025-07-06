@@ -1,0 +1,10 @@
+abbrevs:
+  - name: git
+    abbr: g
+    snippet: git
+
+  - name: git switch
+    abbr: s
+    snippet: switch
+    global: true
+    context: '^git\s'
