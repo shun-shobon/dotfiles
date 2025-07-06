@@ -16,6 +16,7 @@ terraform = "latest"
 usage = "latest"
 starship = "latest"
 lsd = "latest"
+fzf = "latest"
 
 # Tools
 "pipx:markitdown" = { version = "latest", extras = "all" }
