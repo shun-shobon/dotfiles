@@ -1,0 +1,27 @@
+[tools]
+node = "lts"
+python = "latest"
+uv = "latest"
+pipx = "latest"
+dotnet = "latest"
+terraform = "latest"
+
+# npm
+"npm:pnpm" = "latest"
+"npm:@antfu/ni" = "latest"
+
+# Shell
+"ubi:rossmacarthur/sheldon" = "latest"
+"ubi:Ryooooooga/zabrze" = "latest"
+usage = "latest"
+starship = "latest"
+lsd = "latest"
+
+# Tools
+"pipx:markitdown" = { version = "latest", extras = "all" }
+"npm:@google/gemini-cli" = "latest"
+
+[settings]
+experimental = true
+python.uv_venv_auto = true
+idiomatic_version_file_enable_tools = ["rust", "python"]
