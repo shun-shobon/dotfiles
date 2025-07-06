@@ -1,0 +1,20 @@
+# パスの設定
+path=(
+  $HOME/.local/bin(N-/)
+  $HOME/.cargo/bin(N-/)
+  $path
+)
+
+# Homebrewの読み込み
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# miseのshimのみ読み込み
+# VSCodeなどでmise管理のツールを使用するため
+eval "$(mise activate zsh --shims)"
+
+# GPG鍵をSSH鍵として利用可能にする
+SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+
+# Rustのコンパイルをキャッシュ
+RUSTC_WRAPPER="$(which sccache)"
+
