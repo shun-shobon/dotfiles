@@ -3,8 +3,50 @@ abbrevs:
     abbr: g
     snippet: git
 
+  - name: git commit
+    abbr: c
+    snippet: commit
+    global: true
+    context: '^git\s'
+
+  - name: git commit --fixup
+    abbr: f
+    snippet: --fixup
+    global: true
+    context: '^git\scommit\s'
+
+  - name: git commit --amend --no-edit
+    abbr: a
+    snippet: --amend --no-edit
+    global: true
+    context: '^git\scommit\s'
+
   - name: git switch
     abbr: s
     snippet: switch
+    global: true
+    context: '^git\s'
+
+  - name: git status
+    abbr: st
+    snippet: status
+    global: true
+    context: '^git\s'
+
+  - name: git push
+    abbr: ps
+    snippet: push
+    global: true
+    context: '^git\s'
+
+  - name: git pull
+    abbr: pl
+    snippet: pull
+    global: true
+    context: '^git\s'
+
+  - name: git rebase
+    abbr: r
+    snippet: rebase
     global: true
     context: '^git\s'
