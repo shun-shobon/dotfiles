@@ -19,8 +19,10 @@ lsd = "latest"
 fzf = "latest"
 
 # Tools
-"pipx:markitdown" = { version = "latest", extras = "all" }
+"pipx:mineru" = { version = "latest", extras = "core" }
+"pipx:plamo-translate" = "latest"
 "npm:@google/gemini-cli" = "latest"
+"npm:@openai/codex" = "latest"
 
 [settings]
 experimental = true
