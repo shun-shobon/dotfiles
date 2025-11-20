@@ -73,3 +73,9 @@ eval "$(starship init zsh)"
 alias ls="lsd"
 alias ll="ls -l"
 alias la="ls -al"
+
+# 便利関数
+function fcd() {
+  local dir=$(ghq list | fzf --preview "bat --color=always --style=header,grid --line-range :80 $(ghq root)/{}/README.*")
+  cd "$(ghq root)/$dir"
+}

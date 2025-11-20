@@ -1,9 +1,11 @@
 [tools]
 node = "lts"
+bun = "latest"
+deno = "latest"
 python = "latest"
+dotnet = "latest"
 uv = "latest"
 pipx = "latest"
-dotnet = "latest"
 terraform = "latest"
 
 # npm
@@ -17,12 +19,15 @@ usage = "latest"
 starship = "latest"
 lsd = "latest"
 fzf = "latest"
+bat = "latest"
+ripgrep = "latest"
 
 # Tools
 "pipx:mineru" = { version = "latest", extras = "core" }
 "pipx:plamo-translate" = "latest"
 "npm:@google/gemini-cli" = "latest"
 "npm:@openai/codex" = "latest"
+"aqua:suzuki-shunsuke/pinact" = "latest"
 
 [settings]
 experimental = true

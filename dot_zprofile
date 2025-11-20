@@ -6,7 +6,7 @@ path=(
 )
 
 # Homebrewの読み込み
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(/opt/homebrew/bin/brew shellenv zsh)"
 
 # miseのshimのみ読み込み
 # VSCodeなどでmise管理のツールを使用するため

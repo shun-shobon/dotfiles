@@ -1,5 +1,4 @@
-theme = catppuccin-frappe
+theme = Atom One Dark
 font-family = "UDEV Gothic 35NFLG"
-font-feature = "-dlig"
 background-opacity = 0.6
 background-blur-radius = 10
