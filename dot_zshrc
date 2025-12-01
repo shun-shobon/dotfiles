@@ -74,8 +74,22 @@ alias ls="lsd"
 alias ll="ls -l"
 alias la="ls -al"
 
-# 便利関数
-function fcd() {
-  local dir=$(ghq list | fzf --preview "bat --color=always --style=header,grid --line-range :80 $(ghq root)/{}/README.*")
-  cd "$(ghq root)/$dir"
+# ghq管理のリポジトリに素早くcdする
+function fzf-ghq-cd() {
+  local selected_dir="$(ghq list | fzf --preview "bat --color=always --style=header,grid --line-range :80 $(ghq root)/{}/README.*")"
+  if [[ -n selected_dir ]]; then
+    BUFFER="cd $(ghq root)/$selected_dir"
+    zle accept-line
+  fi
+  zle redisplay
 }
+zle -N fzf-ghq-cd
+bindkey '^J' fzf-ghq-cd
+
+function fzf-history() {
+  BUFFER="$(history -n -r 1 | fzf --query "$LBUFFER" --reverse)"
+  CURSOR="$#BUFFER"
+  zle redisplay
+}
+zle -N fzf-history
+bindkey '^R' fzf-history
