@@ -78,7 +78,7 @@ alias la="ls -al"
 # ghq管理のリポジトリに素早くcdする
 function fzf-ghq-cd() {
   local selected_dir="$(ghq list | fzf --preview "bat --color=always --style=header,grid --line-range :80 $(ghq root)/{}/README.*")"
-  if [[ -n selected_dir ]]; then
+  if [[ -n "$selected_dir" ]]; then
     BUFFER="cd $(ghq root)/$selected_dir"
     zle accept-line
   fi
