@@ -40,6 +40,10 @@ setopt APPEND_CREATE                   # '>>'でのリダイレクト時にフ�
 # zle
 
 
+# Ctrl+sとCtrl+qのキーバインドを使えるようにする
+stty stop undef
+stty start undef
+
 # 履歴の設定
 HISTSIZE=1000
 SAVEHIST=100000
@@ -84,8 +88,9 @@ function fzf-ghq-cd() {
   zle redisplay
 }
 zle -N fzf-ghq-cd
-bindkey '^J' fzf-ghq-cd
+bindkey '^Q' fzf-ghq-cd
 
+# 履歴をfzfで検索できるようにする
 function fzf-history() {
   BUFFER="$(history -n -r 1 | fzf --query "$LBUFFER" --reverse)"
   CURSOR="$#BUFFER"
