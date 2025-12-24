@@ -23,6 +23,7 @@ setopt SHARE_HISTORY                   # 複数のzsh間で履歴を共有する
 # 出入力
 setopt NO_CLOBBER                      # '>'でのリダイレクト時にファイル上書きを許可しない
 setopt CORRECT                         # コマンドのスペルミスを修正する
+setopt NO_FLOW_CONTROL                 # Ctrl+S/Qでのフローコントロールを無効化
 setopt IGNORE_EOF                      # EOF<Ctrl+D>でシェルを終了しない
 setopt INTERACTIVE_COMMENTS            # インタラクティブシェル内でもコメントを許可する
 setopt RC_QUOTES                       # シングルクォーテーションを2つ重ねることでシングルクォーテーションをエスケープする
@@ -39,10 +40,6 @@ setopt APPEND_CREATE                   # '>>'でのリダイレクト時にフ�
 # シェルの状態
 # zle
 
-
-# Ctrl+sとCtrl+qのキーバインドを使えるようにする
-stty stop undef
-stty start undef
 
 # 履歴の設定
 HISTSIZE=1000
