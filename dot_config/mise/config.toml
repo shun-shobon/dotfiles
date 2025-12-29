@@ -14,8 +14,8 @@ terraform = "latest"
 "npm:@antfu/ni" = "latest"
 
 # Shell
-"ubi:rossmacarthur/sheldon" = "latest"
-"ubi:Ryooooooga/zabrze" = "latest"
+"github:rossmacarthur/sheldon" = "latest"
+"github:Ryooooooga/zabrze" = "latest"
 usage = "latest"
 starship = "latest"
 lsd = "latest"
