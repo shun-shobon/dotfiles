@@ -27,6 +27,7 @@ ripgrep = "latest"
 # Tools
 "npm:@google/gemini-cli" = "latest"
 "npm:@openai/codex" = "latest"
+"npm:@anthropic-ai/claude-code" = "latest"
 
 [settings]
 experimental = true
