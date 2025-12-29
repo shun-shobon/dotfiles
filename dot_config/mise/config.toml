@@ -10,6 +10,7 @@ terraform = "latest"
 
 # npm
 "npm:pnpm" = "latest"
+"npm:yarn" = "latest"
 "npm:@antfu/ni" = "latest"
 
 # Shell
