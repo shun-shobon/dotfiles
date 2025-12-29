@@ -10,16 +10,16 @@ abbrevs:
     context: '^git\s'
 
   - name: git commit --fixup
-    abbr: cf
-    snippet: commit --fixup
+    abbr: f
+    snippet: --fixup
     global: true
-    context: '^git\s'
+    context: '^git\scommit\s'
 
   - name: git commit --amend --no-edit
-    abbr: ca
-    snippet: commit --amend --no-edit
+    abbr: a
+    snippet: --amend --no-edit
     global: true
-    context: '^git\s'
+    context: '^git\scommit\s'
 
   - name: git switch
     abbr: s
