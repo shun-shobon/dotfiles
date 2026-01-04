@@ -42,6 +42,7 @@ setopt APPEND_CREATE                   # '>>'でのリダイレクト時にフ�
 
 
 # 履歴の設定
+HISTFILE="$HOME/.zsh_history"
 HISTSIZE=1000
 SAVEHIST=100000
 HISTORY_IGNORE="(ls|cd|pwd|exit)"
