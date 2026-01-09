@@ -1,24 +1,47 @@
-[user]
-	name = NISHIZAWA Shuntaro
-	email = me@s2n.tech
-	signingKey = 045D846B69EB26FC
+[branch]
+	sort = -committerdate
 [commit]
 	gpgsign = true
-[push]
-	autoSetupRemote = true
-[pull]
-	rebase = true
-	autostash = true
-[rebase]
-	autostash = true
+	verbose = true
+[core]
+	fsmonitor = true
+	untrackedCache = true
+	quotePath = false
 [diff]
 	algorithm = histogram
-[init]
-	defaultBranch = main
-[gpg]
-	program = gpg
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
 [ghq]
 	root = ~/projects
 	user = shun-shobon
-[core]
-	quotepath = false
+[gpg]
+	program = gpg
+[help]
+	autoCorrect = prompt
+[init]
+	defaultBranch = main
+[merge]
+	conflictStyle = zdiff3
+[pull]
+	rebase = true
+	autoStash = true
+[push]
+	autoSetupRemote = true
+	followTags = true
+[rebase]
+	autoStash = true
+	updateRefs = true
+[rerere]
+	enabled = true
+	autoUpdate = true
+[tag]
+	sort = version:refname
+[user]
+	email = me@s2n.tech
+	name = NISHIZAWA Shuntaro
+	signingKey = 045D846B69EB26FC
