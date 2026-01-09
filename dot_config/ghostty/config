@@ -4,3 +4,7 @@ font-size = 11
 background-opacity = 0.6
 background-blur-radius = 10
 keybind = shift+enter=text:\x1b\r
+quick-terminal-position = "bottom"
+quick-terminal-screen = "main"
+quick-terminal-animation-duration = 0
+keybind = "global:ctrl+alt+space=toggle_quick_terminal"
