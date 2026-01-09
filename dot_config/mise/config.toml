@@ -23,6 +23,7 @@ lsd = "latest"
 fzf = "latest"
 bat = "latest"
 ripgrep = "latest"
+difftastic = "latest"
 
 # Tools
 "npm:@google/gemini-cli" = "latest"
