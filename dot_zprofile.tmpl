@@ -5,8 +5,10 @@ path=(
   $path
 )
 
+{{ if (eq .chezmoi.os "darwin") }}
 # Homebrewの読み込み
 eval "$(/opt/homebrew/bin/brew shellenv zsh)"
+{{ end }}
 
 # miseのshimのみ読み込み
 # VSCodeなどでmise管理のツールを使用するため
