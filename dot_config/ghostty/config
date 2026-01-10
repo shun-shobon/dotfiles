@@ -12,6 +12,9 @@ background-blur-radius = 10
 # Shift + Enterで改行されるように
 keybind = shift+enter=text:\x1b\r
 
+# SSH先でも適切に描画される
+shell-integration-features = ssh-terminfo,ssh-env
+
 # クイックターミナルを設定
 quick-terminal-position = "bottom"
 quick-terminal-screen = "main"
