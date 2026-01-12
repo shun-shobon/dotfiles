@@ -1,0 +1,33 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "bash": {
+      "*": "ask",
+      "rm *": "ask",
+      "git *": "allow",
+      "cat *": "allow",
+      "ls": "allow",
+      "ls *": "allow",
+      "mkdir *": "allow",
+      "rg *": "allow",
+      "pnpm *": "allow",
+      "pnpm install *": "ask",
+      "pnpm add *": "ask"
+    },
+    "read": {
+      ".dev.vars": "deny"
+    },
+    "context7_*": "allow"
+  },
+  "mcp": {
+    "context7": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "{{ onepasswordRead "op://Development/pbhxb7erfc2dhzrexqd7u6ulhi/credential" }}"
+      }
+    }
+  },
+  "plugin": ["opencode-gemini-auth@latest", "@shun-shobon/opencode-caffeinate@latest"]
+}
