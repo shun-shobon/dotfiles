@@ -16,7 +16,7 @@ terraform = "latest"
 # Shell
 "github:rossmacarthur/sheldon" = "latest"
 "github:Ryooooooga/zabrze" = "latest"
-"github:jesseduffield/lazygit" = "latest"
+lazygit = "latest"
 starship = "latest"
 lsd = "latest"
 fzf = "latest"
@@ -26,13 +26,12 @@ difftastic = "latest"
 1password = "latest"
 
 # Tools
-"npm:@google/gemini-cli" = "latest"
-"npm:@openai/codex" = "latest"
-"npm:@anthropic-ai/claude-code" = "latest"
-"npm:opencode-ai" = "latest"
+codex = "latest"
+claude = "latest"
+gemini = "latest"
+opencode = "latest"
 
 [settings]
 experimental = true
-npm.package_manager = "bun"
 python.uv_venv_auto = true
 idiomatic_version_file_enable_tools = ["rust", "python", "node"]
