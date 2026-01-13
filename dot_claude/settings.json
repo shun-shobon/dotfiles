@@ -1,6 +1,9 @@
 {
   "alwaysThinkingEnabled": true,
-  "attribution": {},
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
   "hooks": {
     "Notification": [
       {
