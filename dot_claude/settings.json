@@ -59,9 +59,15 @@
       }
     ]
   },
-  "language": "Japanese",
-  "alwaysThinkingEnabled": true,
   "enabledPlugins": {
     "frontend-design@claude-plugins-official": true
+  },
+  "language": "Japanese",
+  "alwaysThinkingEnabled": true,
+  "plansDirectory": ".claude/plans",
+  "statusLine": {
+    "type": "command",
+    "command": "bunx -y ccstatusline@2.0.23",
+    "padding": 0
   }
 }
