@@ -1,0 +1,65 @@
+[[snippets]]
+name = "git"
+trigger = "g"
+snippet = "git"
+
+[[snippets]]
+name = "git commit"
+trigger = "c"
+snippet = "commit"
+global = true
+context = '^git\s'
+
+[[snippets]]
+name = "git commit --fixup"
+trigger = "f"
+snippet = "--fixup"
+global = true
+context = '^git\scommit\s'
+
+[[snippets]]
+name = "git commit --amend --no-edit"
+trigger = "a"
+snippet = "--amend --no-edit"
+global = true
+context = '^git\scommit\s'
+
+[[snippets]]
+name = "git switch"
+trigger = "s"
+snippet = "switch"
+global = true
+context = '^git\s'
+
+[[snippets]]
+name = "git status"
+trigger = "st"
+snippet = "status"
+global = true
+context = '^git\s'
+
+[[snippets]]
+name = "git push"
+trigger = "ps"
+snippet = "push"
+global = true
+context = '^git\s'
+
+[[snippets]]
+name = "git pull"
+trigger = "pl"
+snippet = "pull"
+global = true
+context = '^git\s'
+
+[[snippets]]
+name = "git rebase"
+trigger = "r"
+snippet = "rebase"
+global = true
+context = '^git\s'
+
+[[snippets]]
+name = "lazygit"
+trigger = "lg"
+snippet = "lazygit"
