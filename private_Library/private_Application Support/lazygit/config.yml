@@ -2,4 +2,4 @@ gui:
   nerdFontsVersion: "3"
 git:
   pagers:
-    - useExternalDiffGitConfig: true
+    - externalDiffCommand: difft --color=always

@@ -10,12 +10,8 @@
 [diff]
 	algorithm = histogram
 	colorMoved = plain
-	external = difft
-	difftool = true
 	mnemonicPrefix = true
 	renames = true
-[difftool]
-	prompt = false
 [fetch]
 	prune = true
 	pruneTags = true
@@ -31,8 +27,6 @@
 	defaultBranch = main
 [merge]
 	conflictStyle = zdiff3
-[pager]
-	difftool = true
 [pull]
 	rebase = true
 	autoStash = true
@@ -51,5 +45,3 @@
 	email = me@s2n.tech
 	name = NISHIZAWA Shuntaro
 	signingKey = 045D846B69EB26FC
-[difftool "difftastic"]
-	cmd = difft "$MERGED" "$LOCAL" "abcdef1" "100644" "$REMOTE" "abcdef2" "100644"
