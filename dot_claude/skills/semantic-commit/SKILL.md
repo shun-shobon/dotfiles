@@ -3,7 +3,7 @@ name: semantic-commit
 description: 大きな変更を意味のある最小単位に分割し、セマンティックなコミットメッセージで順次コミット。コミット分割、Conventional Commits 準拠、プロジェクト規約の自動検出に対応。
 disable-model-invocation: true
 user-invocable: true
-argument-hint: "--dry-run | --lang <en|ja> | --max-commits <n>"
+argument-hint: "--dry-run"
 allowed-tools: Bash, Read, Grep, Glob
 ---
 
@@ -20,8 +20,6 @@ allowed-tools: Bash, Read, Grep, Glob
 ### オプション
 
 - `--dry-run` : 実際のコミットは行わず、提案されるコミット分割のみを表示
-- `--lang <言語>` : コミットメッセージの言語を強制指定 (en, ja)
-- `--max-commits <数>` : 最大コミット数を指定 (デフォルト: 10)
 
 ## 動作フロー
 
@@ -196,14 +194,9 @@ BREAKING CHANGE: user response now includes additional metadata
 
 カスタムタイプ、スコープ制限、メッセージ長制限などを自動適用します。
 
-## 言語判定
+## コミットメッセージの言語
 
-以下の優先順で言語を判定：
-
-1. **`--lang` オプション**: 明示的に指定された場合は最優先
-2. **CommitLint 設定**: `subject-case` ルールが無効化されている場合は日本語
-3. **git log 分析**: 最近20コミットの50%以上が日本語なら日本語モード
-4. **README.md**: 日本語が含まれていれば日本語モード
+コミットメッセージは**日本語**で生成します。
 
 ## プロジェクト規約の優先度
 

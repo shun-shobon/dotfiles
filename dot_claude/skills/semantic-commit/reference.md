@@ -166,18 +166,6 @@ diff --git a/path/to/file b/path/to/file
 | `type-enum` | 使用可能なコミットタイプ |
 | `scope-enum` | 使用可能なスコープ |
 | `subject-max-length` | メッセージ長制限 |
-| `subject-case` | 0 なら日本語対応 |
-
----
-
-## 言語判定の基準
-
-| 判定材料 | 日本語判定条件 | 重み |
-|---------|--------------|------|
-| CommitLint 設定 | `subject-case: [0]` | 高 |
-| 直近20コミット | 50%以上が日本語 | 高 |
-| README.md | 冒頭に日本語含む | 中 |
-| 変更ファイル内容 | コメントに日本語 | 低 |
 
 ---
 
