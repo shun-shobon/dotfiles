@@ -26,7 +26,7 @@
 [init]
 	defaultBranch = main
 [merge]
-	conflictStyle = zdiff3
+	conflictStyle = diff3
 [pull]
 	rebase = true
 	autoStash = true
@@ -45,3 +45,6 @@
 	email = me@s2n.tech
 	name = NISHIZAWA Shuntaro
 	signingKey = 045D846B69EB26FC
+[merge "mergiraf"]
+    name = mergiraf
+    driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P -l %L

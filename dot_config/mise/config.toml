@@ -25,6 +25,8 @@ bat = "latest"
 ripgrep = "latest"
 difftastic = "latest"
 1password = "latest"
+cargo-binstall = "latest"
+"cargo:mergiraf" = "latest"
 
 # Tools
 codex = "latest"
