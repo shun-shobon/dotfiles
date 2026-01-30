@@ -10,8 +10,8 @@ pipx = "latest"
 terraform = "latest"
 
 # npm
-"npm:pnpm" = "latest"
-"npm:yarn" = "latest"
+"pnpm" = "latest"
+"yarn" = "latest"
 "npm:@antfu/ni" = "latest"
 
 # Shell
