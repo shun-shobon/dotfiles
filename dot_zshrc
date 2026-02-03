@@ -61,6 +61,8 @@ eval "$(zabrze init --bind-keys)"
 
 # ローカルユーザーを補完に出さない
 zstyle ':completion:*:*:(ssh|scp|sftp):*' tag-order hosts -users
+# 新しくインストールされたコマンドを即認識するようにする
+zstyle ":completion:*:commands" rehash 1
 
 # 補完機能有効化
 autoload -Uz compinit
