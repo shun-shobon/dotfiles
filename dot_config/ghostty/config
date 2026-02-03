@@ -9,6 +9,11 @@ font-size = 11
 background-opacity = 0.8
 background-blur-radius = 10
 
+# altキーをaltとして送信する
+macos-option-as-alt = left
+keybind = alt+left=unbind
+keybind = alt+right=unbind
+
 # Shift + Enterで改行されるように
 keybind = shift+enter=text:\x1b\r
 
