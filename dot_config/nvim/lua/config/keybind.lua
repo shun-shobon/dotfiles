@@ -38,6 +38,7 @@ vim.api.nvim_set_keymap(
 
 -- 挿入モード中にjjで<Esc>
 vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = true })
+
 -- ESCを2回で検索ハイライト解除
 vim.api.nvim_set_keymap("n", "<Esc><Esc>", "<Cmd>nohlsearch<CR>", { noremap = true, silent = true })
 
@@ -52,6 +53,13 @@ vim.api.nvim_set_keymap("n", "k", "gk", { noremap = true, silent = true })
 
 -- vx2で行末まで選択
 vim.api.nvim_set_keymap("v", "v", "$h", { noremap = true })
+
+-- Cmd+cでコピー
+vim.api.nvim_set_keymap("n", "<D-c>", '"+y', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<D-c>", '"+y', { noremap = true, silent = true })
+
+-- Cmd+sで保存
+vim.api.nvim_set_keymap("n", "<D-s>", "<Cmd>wa<CR>", { noremap = true, silent = true })
 
 -- Ctrl + hjklでウィンドウ間移動
 vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true })
