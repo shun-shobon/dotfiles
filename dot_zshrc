@@ -48,7 +48,7 @@ SAVEHIST=100000
 HISTORY_IGNORE="(ls|cd|pwd|exit)"
 
 # エディタとしてnvimを使用する
-EDITOR="nvim"
+export EDITOR="nvim"
 
 # mise読み込み
 eval "$(mise activate zsh)"
