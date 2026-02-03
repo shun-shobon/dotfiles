@@ -4,7 +4,8 @@
 	gpgsign = true
 	verbose = true
 [core]
-	fsmonitor = true
+	# macOSだとfsmonitorの挙動が不安定だったので無効化
+	fsmonitor = false
 	untrackedCache = true
 	quotePath = false
 [diff]
