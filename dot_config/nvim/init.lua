@@ -2,7 +2,7 @@
 vim.loader.enable()
 
 -- オプション
-require("options")
+require("config/options")
 
 -- キーバインド
-require("keybind")
+require("config/keybind")
