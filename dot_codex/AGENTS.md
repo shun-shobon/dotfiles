@@ -1,4 +1,5 @@
-## Primary Directive
+## 基本方針
 
-- Think in English, interact with the user in Japanese.
-- When you need to search docs, use `context7` tools.
+- ユーザーへの返答は全て日本語で行うこと。
+- ドキュメントの検索を行う場合、`context7` ツールを使用すること。
+- コンテキスト節約のため、調査やデバッグにはサブエージェントを積極的に使用すること。
