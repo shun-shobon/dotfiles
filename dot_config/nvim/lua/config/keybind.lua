@@ -38,6 +38,8 @@ vim.api.nvim_set_keymap(
 
 -- 挿入モード中にjjで<Esc>
 vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = true })
+-- ESCを2回で検索ハイライト解除
+vim.api.nvim_set_keymap("n", "<Esc><Esc>", "<Cmd>nohlsearch<CR>", { noremap = true, silent = true })
 
 -- [Prefix]というマッピングを追加
 vim.api.nvim_set_keymap("n", "[Prefix]", "", { noremap = true })
