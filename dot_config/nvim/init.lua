@@ -6,3 +6,6 @@ require("config/options")
 
 -- キーバインド
 require("config/keybind")
+
+-- プラグイン
+require("config/lazy")
