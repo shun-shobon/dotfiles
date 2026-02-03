@@ -1,15 +1,15 @@
-local autocmd = require("autocmd")
+local augroup = vim.api.nvim_create_augroup("keybind", {})
 
 -- 検索時のみ大文字小文字を区別しない
---cmd("autocmd init CmdlineEnter [/?] set ignorecase")
---cmd("autocmd init CmdlineLeave [/?] set noignorecase")
-autocmd.create_autocmd("CmdlineEnter", {
+vim.api.nvim_create_autocmd("CmdlineEnter", {
+  group = augroup,
   pattern = "[/?]",
   callback = function()
     vim.o.ignorecase = true
   end,
 })
-autocmd.create_autocmd("CmdlineLeave", {
+vim.api.nvim_create_autocmd("CmdlineLeave", {
+  group = augroup,
   pattern = "[/?]",
   callback = function()
     vim.o.ignorecase = false
@@ -63,8 +63,8 @@ vim.api.nvim_set_keymap("n", "<S-Up>", "<C-w>-", { noremap = true })
 vim.api.nvim_set_keymap("n", "<S-Right>", "<C-w>>", { noremap = true })
 
 -- QuickFix及びHelpではqで閉じる
---cmd("autocmd init FileType help,qf nnoremap <buffer> q <C-w>c")
-autocmd.create_autocmd("FileType", {
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup,
   pattern = "help,qf",
   callback = function(event)
     vim.api.nvim_set_keymap("n", "q", "<C-w>c", { noremap = true, buffer = event.buf })
@@ -87,8 +87,8 @@ vim.api.nvim_set_keymap(
 )
 
 -- make, grepなどのコマンドの後に自動的にQuickFixを開く
---cmd("autocmd init QuickfixCmdPost make,grep,grepadd,vimgrep copen")
-autocmd.create_autocmd("QuickfixCmdPost", {
+vim.api.nvim_create_autocmd("QuickfixCmdPost", {
+  group = augroup,
   pattern = "make,grep,grepadd,vimgrep",
   callback = function()
     vim.cmd("copen")
@@ -96,7 +96,8 @@ autocmd.create_autocmd("QuickfixCmdPost", {
 })
 
 -- フォルダが存在しない場合に自動作成する
-autocmd.create_autocmd('BufWritePre', {
+vim.api.nvim_create_autocmd('BufWritePre', {
+  group = augroup,
   pattern = '*',
   callback = function(event)
     local dir = vim.fs.dirname(event.file)
