@@ -78,6 +78,9 @@ alias ls="lsd"
 alias ll="ls -l"
 alias la="ls -al"
 
+# キーバインドをemacsに
+bindkey -e
+
 # ghq管理のリポジトリに素早くcdする
 function fzf-ghq-cd() {
   local selected_dir="$(ghq list | fzf --preview "bat --color=always --style=header,grid --line-range :80 $(ghq root)/{}/README.*")"
