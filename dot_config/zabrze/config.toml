@@ -63,3 +63,22 @@ context = '^git\s'
 name = "lazygit"
 trigger = "lg"
 snippet = "lazygit"
+
+[[snippets]]
+name = "chezmoi"
+trigger = "chez"
+snippet = "chezmoi"
+
+[[snippets]]
+name = "chezmoi apply"
+trigger = "a"
+snippet = "apply"
+global = true
+context = '^chezmoi\s'
+
+[[snippets]]
+name = "chezmoi edit"
+trigger = "e"
+snippet = "edit --apply"
+global = true
+context = '^chezmoi\s'
