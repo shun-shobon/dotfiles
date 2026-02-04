@@ -77,13 +77,13 @@ vim.api.nvim_set_keymap("n", "<S-Up>", "<C-w>-", { noremap = true })
 vim.api.nvim_set_keymap("n", "<S-Right>", "<C-w>>", { noremap = true })
 
 -- QuickFix及びHelpではqで閉じる
-vim.api.nvim_create_autocmd("FileType", {
-  group = augroup,
-  pattern = "help,qf",
-  callback = function(event)
-    vim.api.nvim_set_keymap("n", "q", "<C-w>c", { noremap = true, buffer = event.buf })
-  end,
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+--   group = augroup,
+--   pattern = "help,qf",
+--   callback = function(event)
+--     vim.api.nvim_set_keymap("n", "q", "<C-w>c", { noremap = true, buffer = event.buf })
+--   end,
+-- })
 
 -- w!!でスーパーユーザーとして保存
 vim.api.nvim_set_keymap("c", "w!!", "w !sudo tee > /dev/null %", {})

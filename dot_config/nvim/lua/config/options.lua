@@ -68,5 +68,8 @@ vim.o.pumblend = 10
 -- 補完時にメッセージを出さない
 vim.o.shortmess = vim.o.shortmess .. "c"
 
+-- フローティングの枠を設定
+vim.o.winborder = "rounded"
+
 -- ヘルプの言語を日本語を第一にする
 vim.opt.helplang:prepend('ja')
