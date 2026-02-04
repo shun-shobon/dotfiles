@@ -71,7 +71,7 @@ function M.setup()
 
   local servers = {
     "lua_ls",
-    "tsserver",
+    "ts_ls",
     "eslint",
     "html",
     "cssls",
