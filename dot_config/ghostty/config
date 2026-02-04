@@ -6,8 +6,8 @@ font-family = "UDEV Gothic 35NFLG"
 font-size = 11
 
 # 背景を透過
-background-opacity = 0.8
-background-blur-radius = 10
+background-opacity = 0.9
+background-blur-radius = 24
 
 # altキーをaltとして送信する
 macos-option-as-alt = left
