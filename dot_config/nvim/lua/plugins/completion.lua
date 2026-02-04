@@ -102,6 +102,28 @@ return {
     end,
   },
   {
+    -- GitHub Copilot（インライン補完）
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          hide_during_completion = true,
+          keymap = {
+            accept = "<Tab>",
+            next = "<M-]>",
+            prev = "<M-[>",
+            dismiss = "<Esc>",
+          },
+        },
+        panel = { enabled = true },
+      })
+    end,
+  },
+  {
     -- LSP/DAP/リンターのインストール UI
     "williamboman/mason.nvim",
     cmd = "Mason",
