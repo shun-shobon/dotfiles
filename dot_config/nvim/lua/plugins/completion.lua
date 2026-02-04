@@ -216,6 +216,7 @@ return {
         map("n", "K", vim.lsp.buf.hover, "LSP: Hover")
         map("n", "<leader>rn", vim.lsp.buf.rename, "LSP: Rename")
         map("n", "<leader>ca", vim.lsp.buf.code_action, "LSP: Code action")
+        map({ "n", "v" }, "<D-.>", vim.lsp.buf.code_action, "LSP: Code action")
         map("n", "<leader>f", function()
           vim.lsp.buf.format({ async = true })
         end, "LSP: Format")
@@ -263,6 +264,30 @@ return {
             lspconfig[server].setup(base_config)
           end
         end
+      end
+    end,
+  },
+  {
+    -- vim.ui.*（select/input）をフローティング表示に置き換え
+    "folke/snacks.nvim",
+    event = "VeryLazy",
+    opts = {
+      input = { enabled = true },
+      picker = { enabled = true },
+    },
+    config = function(_, opts)
+      local Snacks = require("snacks")
+      Snacks.setup(opts)
+
+      -- vim.ui.input / vim.ui.select を Snacks に差し替え
+      if Snacks.input and Snacks.input.enable then
+        Snacks.input.enable()
+      end
+      if Snacks.input and Snacks.input.input then
+        vim.ui.input = Snacks.input.input
+      end
+      if Snacks.picker and Snacks.picker.select then
+        vim.ui.select = Snacks.picker.select
       end
     end,
   },
