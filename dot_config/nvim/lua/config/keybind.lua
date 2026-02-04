@@ -55,11 +55,15 @@ vim.api.nvim_set_keymap("n", "k", "gk", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "v", "$h", { noremap = true })
 
 -- Cmd+cでコピー
-vim.api.nvim_set_keymap("n", "<D-c>", '"+y', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<D-c>", '"+yy', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<D-c>", '"+y', { noremap = true, silent = true })
 
 -- Cmd+sで保存
 vim.api.nvim_set_keymap("n", "<D-s>", "<Cmd>wa<CR>", { noremap = true, silent = true })
+
+-- Cmd+/でコメントアウト切替
+vim.api.nvim_set_keymap("n", "<D-/>", "gcc", { noremap = false, silent = true })
+vim.api.nvim_set_keymap("v", "<D-/>", "gc", { noremap = false, silent = true })
 
 -- Ctrl + hjklでウィンドウ間移動
 vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true })
