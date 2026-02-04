@@ -138,8 +138,31 @@ return {
     dependencies = { "mason.nvim" },
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls" },
+        ensure_installed = {
+          "lua_ls",
+          "tsserver",
+          "eslint",
+          "html",
+          "cssls",
+          "jsonls",
+          "tailwindcss",
+          "astro",
+        },
         automatic_installation = true,
+      })
+    end,
+  },
+  {
+    -- mason で formatter/linter も自動インストール
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    dependencies = { "mason.nvim" },
+    config = function()
+      require("mason-tool-installer").setup({
+        ensure_installed = {
+          "prettierd",
+        },
+        auto_update = false,
+        run_on_start = true,
       })
     end,
   },
@@ -153,6 +176,16 @@ return {
     },
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      local servers = {
+        "lua_ls",
+        "tsserver",
+        "eslint",
+        "html",
+        "cssls",
+        "jsonls",
+        "tailwindcss",
+        "astro",
+      }
 
       -- Diagnostics の表示設定
       vim.diagnostic.config({
@@ -192,9 +225,14 @@ return {
       end
 
       -- Lua Language Server の設定
-      local lua_ls_config = {
+      local base_config = {
         capabilities = capabilities,
         on_attach = on_attach,
+      }
+
+      local lua_ls_config = {
+        capabilities = base_config.capabilities,
+        on_attach = base_config.on_attach,
         settings = {
           Lua = {
             diagnostics = {
@@ -212,12 +250,84 @@ return {
 
       -- Nvim 0.11+ API を優先。古い版はフォールバック
       if vim.lsp.config then
+        -- 全サーバ共通のデフォルト
+        vim.lsp.config("*", base_config)
         vim.lsp.config("lua_ls", lua_ls_config)
-        vim.lsp.enable({ "lua_ls" })
+        vim.lsp.enable(servers)
       else
         local lspconfig = require("lspconfig")
-        lspconfig.lua_ls.setup(lua_ls_config)
+        for _, server in ipairs(servers) do
+          if server == "lua_ls" then
+            lspconfig.lua_ls.setup(lua_ls_config)
+          else
+            lspconfig[server].setup(base_config)
+          end
+        end
       end
+    end,
+  },
+  {
+    -- フォーマッタ（Prettier など）
+    "stevearc/conform.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      local conform = require("conform")
+
+      conform.setup({
+        formatters_by_ft = {
+          javascript = { "prettierd", "prettier" },
+          javascriptreact = { "prettierd", "prettier" },
+          typescript = { "prettierd", "prettier" },
+          typescriptreact = { "prettierd", "prettier" },
+          json = { "prettierd", "prettier" },
+          jsonc = { "prettierd", "prettier" },
+          css = { "prettierd", "prettier" },
+          scss = { "prettierd", "prettier" },
+          html = { "prettierd", "prettier" },
+          markdown = { "prettierd", "prettier" },
+          yaml = { "prettierd", "prettier" },
+          astro = { "prettierd", "prettier" },
+        },
+        -- format_on_save は自前で制御（ESLint の fix を先に実行）
+        format_on_save = false,
+      })
+
+      local function has_eslint(bufnr)
+        if vim.lsp.get_clients then
+          return #vim.lsp.get_clients({ bufnr = bufnr, name = "eslint" }) > 0
+        end
+        for _, client in ipairs(vim.lsp.get_active_clients()) do
+          if client.name == "eslint" and client.attached_buffers[bufnr] then
+            return true
+          end
+        end
+        return false
+      end
+
+      local group = vim.api.nvim_create_augroup("FormatOnSave", { clear = true })
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = group,
+        callback = function(args)
+          local bufnr = args.buf
+
+          -- ESLint の fix を先に適用
+          if has_eslint(bufnr) then
+            vim.lsp.buf.code_action({
+              apply = true,
+              timeout_ms = 2000,
+              context = { only = { "source.fixAll.eslint" } },
+            })
+          end
+
+          -- その後にフォーマット
+          conform.format({
+            bufnr = bufnr,
+            timeout_ms = 2000,
+            lsp_fallback = true,
+            quiet = true,
+          })
+        end,
+      })
     end,
   },
 }
