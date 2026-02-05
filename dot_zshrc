@@ -50,6 +50,9 @@ HISTORY_IGNORE="(ls|cd|pwd|exit)"
 # エディタとしてnvimを使用する
 export EDITOR="nvim"
 
+# キーバインドをemacsに
+bindkey -e
+
 # mise読み込み
 eval "$(mise activate zsh)"
 
@@ -77,9 +80,6 @@ eval "$(starship init zsh)"
 alias ls="lsd"
 alias ll="ls -l"
 alias la="ls -al"
-
-# キーバインドをemacsに
-bindkey -e
 
 # ghq管理のリポジトリに素早くcdする
 function fzf-ghq-cd() {
