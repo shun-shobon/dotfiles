@@ -55,19 +55,19 @@ return {
 
       -- コンビネーションキー入力時にヘルプを出す
       local function mode_nx(keys)
-        return { mode = 'n', keys = keys }, { mode = 'x', keys = keys }
+        return { mode = "n", keys = keys }, { mode = "x", keys = keys }
       end
-      local clue = require('mini.clue')
+      local clue = require("mini.clue")
       clue.setup({
         triggers = {
           -- Leader triggers
-          mode_nx('<leader>'),
+          mode_nx("<leader>"),
 
           -- Built-in completion
-          { mode = 'i', keys = '<c-x>' },
+          { mode = "i", keys = "<c-x>" },
 
           -- `g` key
-          mode_nx('g'),
+          mode_nx("g"),
 
           -- Marks
           mode_nx("'"),
@@ -75,30 +75,30 @@ return {
 
           -- Registers
           mode_nx('"'),
-          { mode = 'i', keys = '<c-r>' },
-          { mode = 'c', keys = '<c-r>' },
+          { mode = "i", keys = "<c-r>" },
+          { mode = "c", keys = "<c-r>" },
 
           -- Window commands
-          { mode = 'n', keys = '<c-w>' },
+          { mode = "n", keys = "<c-w>" },
 
           -- bracketed commands
-          { mode = 'n', keys = '[' },
-          { mode = 'n', keys = ']' },
+          { mode = "n", keys = "[" },
+          { mode = "n", keys = "]" },
 
           -- `z` key
-          mode_nx('z'),
+          mode_nx("z"),
 
           -- surround
-          mode_nx('s'),
+          mode_nx("s"),
 
           -- text object
-          { mode = 'x', keys = 'i' },
-          { mode = 'x', keys = 'a' },
-          { mode = 'o', keys = 'i' },
-          { mode = 'o', keys = 'a' },
+          { mode = "x", keys = "i" },
+          { mode = "x", keys = "a" },
+          { mode = "o", keys = "i" },
+          { mode = "o", keys = "a" },
 
           -- option toggle (mini.basics)
-          { mode = 'n', keys = 'm' },
+          { mode = "n", keys = "m" },
         },
 
         clues = {
