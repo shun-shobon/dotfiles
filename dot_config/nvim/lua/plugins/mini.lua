@@ -1,3 +1,13 @@
+-- augroup for this config file
+local augroup = vim.api.nvim_create_augroup("plugins/mini.lua", {})
+
+-- wrapper function to use internal augroup
+local function create_autocmd(event, opts)
+  vim.api.nvim_create_autocmd(event, vim.tbl_extend('force', {
+    group = augroup,
+  }, opts))
+end
+
 return {
   {
     "nvim-mini/mini.nvim",
@@ -111,6 +121,78 @@ return {
           clue.gen_clues.z(),
         },
       })
+
+      -- LSPの設定
+      vim.diagnostic.config({
+        virtual_text = true
+      })
+      vim.lsp.config("*", {
+        root_markers = { ".git" },
+      })
+      vim.lsp.config("lua_ls", {
+        cmd = { "lua-language-server" },
+        filetypes = { "lua" },
+        on_init = function(client)
+          if client.workspace_folders then
+            local path = client.workspace_folders[1].name
+            if path ~= vim.fn.stdpath("config") and (vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc")) then
+              return
+            end
+          end
+          client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+            runtime = { version = "LuaJIT" },
+            workspace = {
+              checkThirdParty = false,
+              library = vim.list_extend(vim.api.nvim_get_runtime_file("lua", true), {
+                "${3rd}/luv/library",
+                "${3rd}/busted/library",
+              }),
+            }
+          })
+        end,
+        settings = {
+          Lua = {
+            diagnostics = {
+              -- 未使用変数は冒頭に`_`をつけていれば警告なし
+              unusedLocalExclude = { "_*" }
+            }
+          }
+        }
+      })
+      vim.lsp.enable("lua_ls")
+      vim.api.nvim_create_autocmd("LspAttach", {
+        group = augroup,
+        callback = function(args)
+          local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+
+          vim.keymap.set("n", "grd", function()
+            vim.lsp.buf.definition()
+          end, { buffer = args.buf, desc = "vim.lsp.buf.definition()" })
+
+          vim.keymap.set("n", "<space>i", function()
+            vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
+          end, { buffer = args.buf, desc = "Format buffer" })
+        end,
+      })
+
+      -- 補完の設定
+      require("mini.fuzzy").setup()
+      require("mini.completion").setup({
+        lsp_completion = {
+          -- 曖昧な絞り込みに対応
+          process_items = MiniFuzzy.process_lsp_items,
+        },
+      })
+
+      -- 補完精度の向上
+      vim.opt.complete = { ".", "w", "k", "b", "u" }
+      -- 先頭候補を自動選択しつつ、確定まではバッファに挿入しない
+      vim.opt.completeopt = { "menuone", "noinsert", "fuzzy" }
+      vim.opt.dictionary:append("/usr/share/dict/words")
+
+      -- キーマップの設定
+      local map_multistep = require("mini.keymap").map_multistep
+      map_multistep("i", "<CR>", { "pmenu_accept", "minipairs_cr" })
     end,
   },
 }
