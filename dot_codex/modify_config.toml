@@ -39,5 +39,4 @@ hide_full_access_warning = true
 hide_rate_limit_model_nudge = true
 # chezmoi-managed:end
 
-{{- $rest := .chezmoi.stdin | replaceAllRegex "(?s)^# chezmoi-managed:start.*?# chezmoi-managed:end\n*" "" -}}
-{{- printf "\n\n%s" $rest -}}
+{{- .chezmoi.stdin | replaceAllRegex "(?s)^# chezmoi-managed:start.*?# chezmoi-managed:end\n*" "\n\n" -}}
