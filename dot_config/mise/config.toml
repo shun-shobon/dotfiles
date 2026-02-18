@@ -38,5 +38,6 @@ opencode = "latest"
 
 [settings]
 experimental = true
+npm.package_manager = "bun"
 python.uv_venv_auto = true
 idiomatic_version_file_enable_tools = ["rust", "python", "node"]
