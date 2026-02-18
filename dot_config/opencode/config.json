@@ -30,11 +30,11 @@
     "context7": {
       "enabled": true,
       "type": "remote",
-      "url": "https://mcp.context7.com/mcp",
-      "headers": {
-        "CONTEXT7_API_KEY": "{{ onepasswordRead "op://Development/pbhxb7erfc2dhzrexqd7u6ulhi/credential" }}"
-      }
+      "url": "https://mcp.context7.com/mcp/oauth"
     }
   },
-  "plugin": ["opencode-gemini-auth@latest", "@shun-shobon/opencode-caffeinate@latest"]
+  "plugin": [
+    "opencode-gemini-auth@latest",
+    "@shun-shobon/opencode-caffeinate@latest"
+  ]
 }
