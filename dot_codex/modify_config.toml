@@ -20,7 +20,7 @@ config_file = "./agents/explorer.toml"
 
 [sandbox_workspace_write]
 network_access = true
-writable_roots = ["~/Library/pnpm", "~/Library/Caches/pnpm", "~/Library/Caches/uv"]
+writable_roots = ["~/Library/pnpm", "~/Library/Caches", "~/.cache"]
 # 危険設定
 #writable_roots = ["/Users/shun"]
 
