@@ -43,9 +43,9 @@ vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Esc><Esc>", "<Cmd>nohlsearch<CR>", { noremap = true, silent = true })
 
 -- [Prefix]というマッピングを追加
-vim.api.nvim_set_keymap("n", "[Prefix]", "", { noremap = true })
+--vim.api.nvim_set_keymap("n", "[Prefix]", "", { noremap = true })
 -- <Space>に[Prefix]を割り当て
-vim.api.nvim_set_keymap("n", "<Space>", "[Prefix]", {})
+--vim.api.nvim_set_keymap("n", "<Space>", "[Prefix]", {})
 
 -- 表示行でj, k移動
 vim.api.nvim_set_keymap("n", "j", "gj", { noremap = true, silent = true })
@@ -93,12 +93,12 @@ vim.api.nvim_set_keymap("n", "H", "^", { noremap = true })
 vim.api.nvim_set_keymap("n", "L", "$", { noremap = true })
 
 -- [Prefix] + tでターミナルを開く
-vim.api.nvim_set_keymap(
-  "n",
-  "[Prefix]t",
-  "<Cmd>botright 20split +term<CR>i",
-  { noremap = true, silent = true }
-)
+-- vim.api.nvim_set_keymap(
+--   "n",
+--   "[Prefix]t",
+--   "<Cmd>botright 20split +term<CR>i",
+--   { noremap = true, silent = true }
+-- )
 
 -- make, grepなどのコマンドの後に自動的にQuickFixを開く
 vim.api.nvim_create_autocmd("QuickfixCmdPost", {
