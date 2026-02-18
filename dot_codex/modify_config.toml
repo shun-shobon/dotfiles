@@ -1,0 +1,43 @@
+{{- /* chezmoi:modify-template */ -}}
+# chezmoi-managed:start
+model = "gpt-5.3-codex"
+model_reasoning_effort = "high"
+web_search = "live"
+personality = "pragmatic"
+file_opener = "cursor"
+#notify = ["bash", "/Users/shun/.codex/notify.sh"]
+# 危険設定
+#sandbox_mode = "danger-full-access"
+#approval_policy = "never"
+
+[features]
+unified_exec = true
+shell_snapshot = true
+multi_agent = true
+
+[agents.explorer]
+config_file = "./agents/explorer.toml"
+
+[sandbox_workspace_write]
+network_access = true
+writable_roots = ["~/Library/pnpm", "~/Library/Caches/pnpm", "~/Library/Caches/uv"]
+# 危険設定
+#writable_roots = ["/Users/shun"]
+
+[tui]
+status_line = ["model-with-reasoning", "project-root", "git-branch", "context-remaining", "used-tokens", "total-input-tokens", "total-output-tokens"]
+
+[mcp_servers.context7]
+url = "https://mcp.context7.com/mcp/oauth"
+
+[mcp_servers.playwright]
+command = "pnpm"
+args = ["dlx", "@playwright/mcp@latest"]
+
+[notice]
+hide_full_access_warning = true
+hide_rate_limit_model_nudge = true
+# chezmoi-managed:end
+
+{{- $rest := .chezmoi.stdin | replaceAllRegex "(?s)^# chezmoi-managed:start.*?# chezmoi-managed:end\n*" "" -}}
+{{- printf "\n\n%s" $rest -}}
