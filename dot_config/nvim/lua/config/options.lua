@@ -69,7 +69,7 @@ vim.o.pumblend = 10
 vim.o.shortmess = vim.o.shortmess .. "c"
 
 -- フローティングの枠を設定
-vim.o.winborder = "rounded"
+vim.o.winborder = "double"
 
 -- ヘルプの言語を日本語を第一にする
 vim.opt.helplang:prepend('ja')
