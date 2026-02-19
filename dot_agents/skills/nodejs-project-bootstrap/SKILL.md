@@ -105,6 +105,7 @@ pnpm add -D typescript @tsconfig/vite-react @tsconfig/strictest
 ```
 
 - 追加オプションが必要な場合のみ、最小限の項目を上書きする。
+- `@tsconfig/*` の一覧と使い分け: `https://github.com/tsconfig/bases/blob/main/README.md`
 
 ## Linter / Formatter 導入ルール
 
