@@ -72,9 +72,8 @@ trustPolicyIgnoreAfter: 10080
 
 ```yaml
 allowBuilds:
-  esbuild: true
-  sharp: true
-  workerd: false
+  esbuild: true # 許可する場合
+  sharp: false # 拒否する場合
 ```
 
 ## 許可・拒否の判断基準
