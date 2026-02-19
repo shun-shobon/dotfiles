@@ -1,0 +1,3 @@
+interface:
+  display_name: "pnpm Dependency Ops"
+  short_description: "pnpm依存追加とbuild script許可/拒否の安全運用"
