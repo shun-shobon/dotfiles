@@ -106,6 +106,59 @@ pnpm add -D typescript @tsconfig/vite-react @tsconfig/strictest
 
 - 追加オプションが必要な場合のみ、最小限の項目を上書きする。
 
+## Linter / Formatter 導入ルール
+
+- Linter と Formatter は必ず導入し、`oxlint` と `oxfmt` を使う。
+- 基本はデフォルト設定で運用する。
+- `oxlint` は type-aware linting を有効化する（`--type-aware`）。
+- type-aware linting のために `oxlint-tsgolint` を必ず導入する。
+
+1. 依存を追加する。
+
+```bash
+pnpm add -D oxlint oxlint-tsgolint oxfmt
+```
+
+2. 設定ファイルを生成する。
+
+```bash
+pnpm exec oxlint --init
+pnpm exec oxfmt --init
+```
+
+3. `package.json` の scripts に実行コマンドを追加する。
+
+```json
+{
+  "scripts": {
+    "lint": "oxlint --type-aware --type-check",
+    "lint:fix": "oxlint --type-aware --type-check --fix",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check"
+  }
+}
+```
+
+4. `oxfmt` のデフォルト設定に import sort と `package.json` の scripts sort を追加する。
+
+`.oxfmtrc.json`:
+
+```json
+{
+  "experimentalSortImports": {
+    "groups": ["builtin", "external", "internal", "parent", "sibling", "index"]
+  },
+  "experimentalSortPackageJson": {
+    "sortScripts": true
+  }
+}
+```
+
+5. 詳細設定は公式ドキュメントを参照する。
+
+- oxlint type-aware linting: `https://oxc.rs/docs/guide/usage/linter/type-aware`
+- oxfmt config file reference: `https://oxc.rs/docs/guide/usage/formatter/config-file-reference`
+
 ## 依存追加ルール
 
 - 依存追加は必ず `pnpm add <package-name>` または `pnpm add -D <package-name>` を使う。
