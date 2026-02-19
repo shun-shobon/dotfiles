@@ -125,7 +125,7 @@ pnpm add -D typescript @tsconfig/vite-react @tsconfig/strictest
 
 ## Linter / Formatter 導入ルール
 
-- Linter と Formatter は必ず導入し、`oxlint` と `oxfmt` を使う。
+- **重要**: Linter と Formatter は必ず導入し、`oxlint` と `oxfmt` を使う。
 - 基本はデフォルト設定で運用する。
 - `oxlint` は type-aware linting を有効化する（`--type-aware`）。
 - type-aware linting のために `oxlint-tsgolint` を必ず導入する。
