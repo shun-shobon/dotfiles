@@ -105,6 +105,20 @@ pnpm add -D typescript @tsconfig/vite-react @tsconfig/strictest
 ```
 
 - 追加オプションが必要な場合のみ、最小限の項目を上書きする。
+
+3. `package.json` に型チェック用スクリプトを追加する。
+
+```json
+{
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  }
+}
+```
+
+- ライブラリビルドに `tsc` を使わない。
+- ワークスペース間で共通化するライブラリなど、ビルド成果物が必要な場合は `tsdown` を使う。
+- tsdown ガイド: `https://tsdown.dev/guide/`
 - `@tsconfig/*` の一覧と使い分け: `https://github.com/tsconfig/bases/blob/main/README.md`
 
 ## Linter / Formatter 導入ルール
