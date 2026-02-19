@@ -1,0 +1,31 @@
+# npmの実行を禁止し、pnpmでの実行を促す。
+prefix_rule(
+  pattern = ["npm"],
+  decision = "forbidden",
+  justification = "Use `pnpm` instead of `npm`.",
+  match = [
+    "npm install",
+    "npm start",
+    "npm run dev",
+  ],
+)
+
+# npxの実行を禁止し、pnpm dlxでの実行を促す。
+prefix_rule(
+  pattern = ["npx"],
+  decision = "forbidden",
+  justification = "Use `pnpm dlx` instead of `npx`.",
+  match = [
+    "npx tsx",
+  ],
+)
+
+# pnpxの実行を禁止し、pnpm dlxでの実行を促す。
+prefix_rule(
+  pattern = ["pnpx"],
+  decision = "forbidden",
+  justification = "Use `pnpm dlx` instead of `pnpx`.",
+  match = [
+    "pnpx tsx",
+  ],
+)
