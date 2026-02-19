@@ -23,9 +23,11 @@ allowBuilds:
 
 ## 許可・拒否の判断基準
 
-- 一般的で用途が明確なパッケージは許可する。
+- 用途が明確なパッケージでも、`allowBuilds` の判断前に必ず確認を行う。
+- まず `node_modules/.pnpm/<package-name>@<version>/node_modules/<package-name>/package.json` を開き、`postinstall` / `preinstall` / `install` を確認する。
+- `preinstall` / `install` / `postinstall` で実行されるファイルのパスを特定し、実際のスクリプトファイル本文まで必ず確認する。
+- ファイル名や配置は偽装される前提で扱い、名称ではなく中身で許可・拒否を判断する。
 - 未知・不審なパッケージ、またはビルドスクリプト不要に見えるパッケージは拒否寄りで確認する。
-- まず `node_modules/.pnpm/<package-name>@<version>/node_modules/<package-name>/package.json` を開き、`postinstall`（必要なら `preinstall` / `install`）を確認する。
 - インストールスクリプトが不審なら、即座にアンインストールしてユーザーに報告する。
 
 ```bash
