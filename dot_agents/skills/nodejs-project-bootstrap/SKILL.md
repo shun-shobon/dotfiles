@@ -60,6 +60,52 @@ trustPolicy: no-downgrade
 trustPolicyIgnoreAfter: 10080
 ```
 
+## TypeScript 導入ルール
+
+- Node.js プロジェクトでは、ツール制約で不可能な設定ファイルを除き TypeScript を使う。
+- `tsconfig.json` は手書きでオプションを埋めず、必ず `@tsconfig/*` を `extends` で利用する。
+- 型チェックは厳格運用を前提にし、`@tsconfig/strictest` を併用する。
+
+1. TypeScript 関連の依存を追加する。
+
+- Node.js プロジェクト:
+
+```bash
+pnpm add -D typescript @tsconfig/node-lts @tsconfig/strictest
+```
+
+- Vite + React プロジェクト:
+
+```bash
+pnpm add -D typescript @tsconfig/vite-react @tsconfig/strictest
+```
+
+2. `tsconfig.json` は `extends` で構成する。
+
+- Node.js プロジェクト例:
+
+```json
+{
+  "extends": [
+    "@tsconfig/node-lts/tsconfig.json",
+    "@tsconfig/strictest/tsconfig.json"
+  ]
+}
+```
+
+- Vite + React プロジェクト例:
+
+```json
+{
+  "extends": [
+    "@tsconfig/vite-react/tsconfig.json",
+    "@tsconfig/strictest/tsconfig.json"
+  ]
+}
+```
+
+- 追加オプションが必要な場合のみ、最小限の項目を上書きする。
+
 ## 依存追加ルール
 
 - 依存追加は必ず `pnpm add <package-name>` または `pnpm add -D <package-name>` を使う。
