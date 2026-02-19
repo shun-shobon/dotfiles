@@ -29,3 +29,10 @@ prefix_rule(
     "pnpx tsx",
   ],
 )
+
+# pnpm createの実行を禁止し、自分でプロジェクトを作成することを促す。
+prefix_rule(
+  pattern = ["pnpm", "create"],
+  decision = "forbidden",
+  justification = "Create a project manually instead of using `pnpm create`.",
+)

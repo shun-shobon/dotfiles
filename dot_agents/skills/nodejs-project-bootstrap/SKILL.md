@@ -92,3 +92,4 @@ pnpm remove <package-name>
 
 - Node.js の固定は `.tool-versions` で行う。`mise.toml` は使わない。
 - pnpm の固定は `.tool-versions` ではなく `package.json` の `packageManager` で行う。
+- `pnpm create` は使用しないこと。テンプレートではなく自分でプロジェクトを作成する。
