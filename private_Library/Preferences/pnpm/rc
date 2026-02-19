@@ -1,0 +1,5 @@
+minimum-release-age=1440
+save-exact=true
+strict-dep-builds=true
+trust-policy=no-downgrade
+trust-policy-ignore-after=10080
