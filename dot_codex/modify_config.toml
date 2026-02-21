@@ -14,6 +14,7 @@ file_opener = "cursor"
 unified_exec = true
 shell_snapshot = true
 multi_agent = true
+prevent_idle_sleep = true
 
 [agents.explorer]
 config_file = "./agents/explorer.toml"
