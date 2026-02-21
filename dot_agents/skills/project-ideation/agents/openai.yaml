@@ -1,0 +1,7 @@
+interface:
+  display_name: "Project Ideation"
+  short_description: "プロジェクトの初期アイデアを多面的に深掘り"
+  default_prompt: "$project-ideation を使って、面白い案を固めて。"
+
+policy:
+  allow_implicit_invocation: false
