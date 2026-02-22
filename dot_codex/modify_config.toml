@@ -29,7 +29,7 @@ writable_roots = ["~/Library/pnpm", "~/Library/Caches", "~/.cache"]
 #writable_roots = ["/Users/shun"]
 
 [tui]
-status_line = ["model-with-reasoning", "project-root", "git-branch", "context-remaining", "used-tokens", "total-input-tokens", "total-output-tokens"]
+status_line = ["project-root", "git-branch", "context-remaining", "used-tokens", "total-input-tokens", "total-output-tokens"]
 
 [mcp_servers.context7]
 url = "https://mcp.context7.com/mcp/oauth"
