@@ -3,3 +3,4 @@ gui:
 git:
   pagers:
     - externalDiffCommand: difft --color=always
+  overrideGpg: true
