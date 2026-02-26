@@ -7,9 +7,7 @@ web_search = "live"
 personality = "pragmatic"
 file_opener = "cursor"
 #notify = ["bash", "/Users/shun/.codex/notify.sh"]
-# 危険設定
-#sandbox_mode = "danger-full-access"
-#approval_policy = "never"
+suppress_unstable_features_warning = true
 
 [features]
 unified_exec = true
@@ -28,8 +26,6 @@ config_file = "./agents/explorer.toml"
 [sandbox_workspace_write]
 network_access = true
 writable_roots = ["~/Library/pnpm", "~/Library/Caches", "~/.cache", "~/.local/state/mise"]
-# 危険設定
-#writable_roots = ["/Users/shun"]
 
 [tui]
 status_line = ["project-root", "git-branch", "context-remaining", "used-tokens", "total-input-tokens", "total-output-tokens"]
