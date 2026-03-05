@@ -27,6 +27,7 @@ zellij = "latest"
 difftastic = "latest"
 hyperfine = "latest"
 1password = "latest"
+sccache = "latest"
 cargo-binstall = "latest"
 "cargo:mergiraf" = "latest"
 
