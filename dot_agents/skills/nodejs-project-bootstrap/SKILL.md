@@ -67,6 +67,7 @@ trustPolicyIgnoreAfter: 10080
 - Node.js プロジェクトでは、ツール制約で不可能な設定ファイルを除き TypeScript を使う。
 - `tsconfig.json` は手書きでオプションを埋めず、必ず `@tsconfig/*` を `extends` で利用する。
 - 型チェックは厳格運用を前提にし、`@tsconfig/strictest` を併用する。
+- ただし、`exactOptionalPropertyTypes` は `false` に、 `verbatimModuleSyntax` は `true` にする。
 
 1. TypeScript 関連の依存を追加する。
 
@@ -91,7 +92,11 @@ pnpm add -D typescript @tsconfig/vite-react @tsconfig/strictest
   "extends": [
     "@tsconfig/node-lts/tsconfig.json",
     "@tsconfig/strictest/tsconfig.json"
-  ]
+  ],
+  "compilerOptions": {
+    "exactOptionalPropertyTypes": false,
+    "verbatimModuleSyntax": true
+  }
 }
 ```
 
@@ -102,7 +107,11 @@ pnpm add -D typescript @tsconfig/vite-react @tsconfig/strictest
   "extends": [
     "@tsconfig/vite-react/tsconfig.json",
     "@tsconfig/strictest/tsconfig.json"
-  ]
+  ],
+  "compilerOptions": {
+    "exactOptionalPropertyTypes": false,
+    "verbatimModuleSyntax": true
+  }
 }
 ```
 
@@ -127,7 +136,7 @@ pnpm add -D typescript @tsconfig/vite-react @tsconfig/strictest
 
 - **重要**: Linter と Formatter は必ず導入し、`oxlint` と `oxfmt` を使う。
 - 基本はデフォルト設定で運用する。
-- `oxlint` は type-aware linting を有効化する（`--type-aware`）。
+- `oxlint` は type-aware linting を有効化する。
 - type-aware linting のために `oxlint-tsgolint` を必ず導入する。
 
 1. 依存を追加する。
@@ -150,13 +159,23 @@ pnpm exec oxfmt --init
   "scripts": {
     "format": "oxfmt",
     "format:check": "oxfmt --check",
-    "lint": "oxlint --type-aware --type-check",
-    "lint:fix": "oxlint --type-aware --type-check --fix"
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix"
   }
 }
 ```
 
-4. `oxfmt` のデフォルト設定に import sort と `package.json` の scripts sort を追加する。
+4. `oxlint` のデフォルト設定に type-aware linting を、 `oxfmt` のデフォルト設定に import sort と `package.json` の scripts sort を追加する。
+
+`.oxlintrc.json`:
+
+```json
+{
+  "options": {
+    "typeAware": true
+  }
+}
+```
 
 `.oxfmtrc.json`:
 
