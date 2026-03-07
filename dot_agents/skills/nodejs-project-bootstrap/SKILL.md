@@ -87,6 +87,8 @@ pnpm add -D typescript @tsconfig/vite-react @tsconfig/strictest
 
 - Node.js プロジェクト例:
 
+Node.jsプロジェクトの場合は `moduleResolution` を `bundler` にする。
+
 ```json
 {
   "extends": [
@@ -95,7 +97,8 @@ pnpm add -D typescript @tsconfig/vite-react @tsconfig/strictest
   ],
   "compilerOptions": {
     "exactOptionalPropertyTypes": false,
-    "verbatimModuleSyntax": true
+    "verbatimModuleSyntax": true,
+    "moduleResolution": "bundler"
   }
 }
 ```
@@ -127,8 +130,7 @@ pnpm add -D typescript @tsconfig/vite-react @tsconfig/strictest
 }
 ```
 
-- ライブラリビルドに `tsc` を使わない。
-- ワークスペース間で共通化するライブラリなど、ビルド成果物が必要な場合は `tsdown` を使う。
+- ビルドツールとして `tsc` を使わない。ビルドする場合は `tsdown` を使うこと。
 - tsdown ガイド: `https://tsdown.dev/guide/`
 - `@tsconfig/*` の一覧と使い分け: `https://github.com/tsconfig/bases/blob/main/README.md`
 
