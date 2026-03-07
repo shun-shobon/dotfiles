@@ -82,3 +82,8 @@ trigger = "e"
 snippet = "edit --apply"
 global = true
 context = '^chezmoi\s'
+
+[[snippets]]
+name = "codex"
+trigger = "c"
+snippet = "codex"
