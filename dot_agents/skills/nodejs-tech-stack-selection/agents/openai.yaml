@@ -1,0 +1,4 @@
+interface:
+  display_name: "Node.js Tech Stack Selection"
+  short_description: "Node.js依存選定の標準構成を固定するルール集"
+  default_prompt: "Use $nodejs-tech-stack-selection to choose dependencies from the standard Node.js stack defaults."
