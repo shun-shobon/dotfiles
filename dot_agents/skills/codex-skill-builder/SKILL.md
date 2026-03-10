@@ -1,6 +1,6 @@
 ---
 name: codex-skill-builder
-description: Design, draft, review, and refine Codex agent skills that follow current Codex conventions and the open Agent Skills format. Use when the user wants to create a new skill, update an existing SKILL.md, improve a skill's trigger description, decide whether to add scripts/references/assets, add agents/openai.yaml, or validate and test a skill package before installing it. Common triggers include "create a Codex skill", "make a skill", "improve this SKILL.md", "skill を作って", and "この skill を改善して". Do not use for general prompt writing, AGENTS.md authoring, or implementing the target workflow unless that work is directly part of packaging a Codex skill.
+description: Design, draft, review, and refine Codex agent skills that follow current Codex conventions and the open Agent Skills format. Use when the user wants to create a new skill, update an existing SKILL.md, improve a skill's trigger description, decide whether to add scripts/references/assets, add agents/openai.yaml, or validate and test a skill package before installing it. Common triggers include "create a Codex skill", "make a skill", and "improve this SKILL.md".
 ---
 
 # Codex Skill Builder
