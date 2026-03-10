@@ -1,0 +1,5 @@
+interface:
+  display_name: "Codex Skill Builder"
+  short_description: "Create, review, and refine Codex skills with strong triggers and lean packaging."
+  default_prompt: |
+    Help me create or improve a Codex skill. I want a package that follows current Codex conventions, uses a precise trigger description, includes only the files that materially improve reliability, and comes with concrete test prompts.
