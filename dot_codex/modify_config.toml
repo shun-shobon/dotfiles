@@ -5,7 +5,7 @@ model_reasoning_effort = "high"
 plan_mode_reasoning_effort = "xhigh"
 #service_tier = "fast"
 web_search = "live"
-personality = "pragmatic"
+personality = "none"
 file_opener = "cursor"
 #notify = ["bash", "/Users/shun/.codex/notify.sh"]
 suppress_unstable_features_warning = true
@@ -16,6 +16,7 @@ shell_snapshot = true
 multi_agent = true
 prevent_idle_sleep = true
 voice_transcription = true
+js_repl = true
 
 [agents]
 max_threads = 24
@@ -26,17 +27,13 @@ config_file = "./agents/explorer.toml"
 
 [sandbox_workspace_write]
 network_access = true
-writable_roots = ["~/Library/pnpm", "~/Library/Caches", "~/.cache", "~/.local/state/mise", "~/.local/share/mise"]
+writable_roots = ["~/.npm", "~/Library/pnpm", "~/Library/Caches", "~/.cache", "~/.local/state/mise", "~/.local/share/mise"]
 
 [tui]
 status_line = ["project-root", "git-branch", "context-remaining", "used-tokens", "total-input-tokens", "total-output-tokens"]
 
 [mcp_servers.context7]
 url = "https://mcp.context7.com/mcp/oauth"
-
-[mcp_servers.playwright]
-command = "pnpm"
-args = ["dlx", "@playwright/mcp@latest"]
 
 [notice]
 hide_full_access_warning = true
