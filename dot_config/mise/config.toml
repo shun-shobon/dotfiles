@@ -34,7 +34,7 @@ cargo-binstall = "latest"
 "cargo:mergiraf" = "latest"
 
 # Tools
-codex = "0.111.0"
+codex = "latest"
 claude = "latest"
 gemini = "latest"
 opencode = "latest"

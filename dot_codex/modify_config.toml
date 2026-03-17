@@ -9,6 +9,7 @@ personality = "none"
 file_opener = "cursor"
 #notify = ["bash", "/Users/shun/.codex/notify.sh"]
 suppress_unstable_features_warning = true
+js_repl_node_path = "~/.local/share/mise/installs/node/lts/bin/node"
 
 [features]
 unified_exec = true
@@ -23,7 +24,12 @@ max_threads = 24
 max_depth = 4
 
 [agents.explorer]
+description = "Use `explorer` for specific codebase questions."
 config_file = "./agents/explorer.toml"
+
+[agents.worker]
+description = "Use for execution and production work."
+config_file = "./agents/worker.toml"
 
 [sandbox_workspace_write]
 network_access = true
