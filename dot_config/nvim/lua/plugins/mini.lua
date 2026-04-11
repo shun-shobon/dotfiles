@@ -188,7 +188,8 @@ return {
       vim.opt.complete = { ".", "w", "k", "b", "u" }
       -- 先頭候補を自動選択しつつ、確定まではバッファに挿入しない
       vim.opt.completeopt = { "menuone", "noinsert", "fuzzy" }
-      vim.opt.dictionary:append("/usr/share/dict/words")
+      -- 標準辞書を補完対象に追加
+      --vim.opt.dictionary:append("/usr/share/dict/words")
 
       -- キーマップの設定
       local map_multistep = require("mini.keymap").map_multistep
