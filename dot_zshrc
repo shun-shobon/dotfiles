@@ -53,6 +53,10 @@ export EDITOR="nvim"
 # キーバインドをemacsに
 bindkey -e
 
+# Google Cloud SDK用の設定
+if [[ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]]; then source "$HOME/google-cloud-sdk/path.zsh.inc"; fi
+if [[ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]]; then source "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
+
 # mise読み込み
 eval "$(mise activate zsh)"
 
@@ -112,7 +116,3 @@ bindkey '^R' fzf-history
 function commit() {
   codex exec --ephemeral --yolo --model gpt-5.3-codex-spark "現在の変更点を確認し、コミットを行ってください。コミットメッセージについては、プロジェクト内でルールが決まっていればそれに従い、そうでない場合は過去のログを参照し、適切なメッセージを生成してください。"
 }
-
-# Google Cloud SDK用の設定
-if [[ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]]; then source "$HOME/google-cloud-sdk/path.zsh.inc"; fi
-if [[ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]]; then source "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
