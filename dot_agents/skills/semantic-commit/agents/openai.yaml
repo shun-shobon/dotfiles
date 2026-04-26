@@ -1,0 +1,4 @@
+interface:
+  display_name: "セマンティックコミット"
+  short_description: "変更を意味単位に分割してコミットする手順"
+  default_prompt: "$semantic-commit を使って、現在の Git 差分を意味のあるコミット単位に分割してください。"
