@@ -3,7 +3,7 @@
 model = "gpt-5.4"
 model_reasoning_effort = "high"
 plan_mode_reasoning_effort = "xhigh"
-#service_tier = "fast"
+service_tier = "fast"
 web_search = "live"
 personality = "none"
 file_opener = "cursor"
@@ -18,6 +18,8 @@ multi_agent = true
 prevent_idle_sleep = true
 voice_transcription = true
 js_repl = true
+memories = true
+image_generation = true
 
 [agents]
 max_threads = 24
