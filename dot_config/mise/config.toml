@@ -15,9 +15,7 @@ terraform = "latest"
 "npm:@antfu/ni" = "latest"
 
 # Shell
-"github:rossmacarthur/sheldon" = "latest"
-"github:Ryooooooga/zabrze" = "latest"
-"github:rtk-ai/rtk" = "latest"
+fnox = "latest"
 lazygit = "latest"
 starship = "latest"
 lsd = "latest"
@@ -32,8 +30,12 @@ sccache = "latest"
 cargo-binstall = "latest"
 "cargo:cargo-outdated" = "latest"
 "cargo:mergiraf" = "latest"
+"github:rossmacarthur/sheldon" = "latest"
+"github:Ryooooooga/zabrze" = "latest"
+"github:rtk-ai/rtk" = "latest"
+"github:k1LoW/git-wt" = "latest"
 
-# Tools
+# AI Tools
 codex = "latest"
 claude = "latest"
 gemini = "latest"
@@ -41,6 +43,14 @@ opencode = "latest"
 
 [settings]
 experimental = true
-npm.package_manager = "bun"
-python.uv_venv_auto = true
 idiomatic_version_file_enable_tools = ["rust", "python", "node"]
+
+[settings.github]
+use_git_credentials = true
+
+[settings.npm]
+package_manager = "bun"
+
+[settings.python]
+uv_venv_auto = true
+
