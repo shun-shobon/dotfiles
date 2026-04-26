@@ -62,6 +62,12 @@ eval "$(sheldon source)"
 # zabrze読み込み
 eval "$(zabrze init --bind-keys)"
 
+# fnox読み込み
+eval "$(fnox activate zsh)"
+
+# git-wt読み込み
+eval "$(git wt --init zsh)"
+
 # ローカルユーザーを補完に出さない
 zstyle ':completion:*:*:(ssh|scp|sftp):*' tag-order hosts -users
 # 新しくインストールされたコマンドを即認識するようにする
