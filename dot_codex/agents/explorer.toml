@@ -1,2 +1,2 @@
-model = "gpt-5.3-codex-spark"
+model = "gpt-5.3-codex-spark-preview"
 model_reasoning_effort = "medium"
