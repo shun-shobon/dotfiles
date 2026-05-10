@@ -70,7 +70,8 @@ eval "$(zabrze init --bind-keys)"
 eval "$(fnox activate zsh)"
 
 # git-wt読み込み
-eval "$(git wt --init zsh)"
+eval "$(git wt --init zsh --nocd)"
+
 
 # ローカルユーザーを補完に出さない
 zstyle ':completion:*:*:(ssh|scp|sftp):*' tag-order hosts -users
