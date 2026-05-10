@@ -10,15 +10,19 @@ personality = "pragmatic"
 file_opener = "cursor"
 suppress_unstable_features_warning = true
 approvals_reviewer = "auto_review"
+theme = "one-half-dark"
 
 [features]
 prevent_idle_sleep = true
 memories = true
 image_generation = true
+terminal_resize_reflow = true
+goals = true
+remote_connections = true
 
 [sandbox_workspace_write]
 network_access = true
-writable_roots = ["~/.npm", "~/Library/pnpm", "~/Library/Caches", "~/.cache", "~/.local/state/mise", "~/.local/share/mise"]
+writable_roots = ["~/.npm", "~/Library/pnpm", "~/Library/Caches", "~/.cache", "~/.local/state/mise", "~/.local/share/mise", "~/.gnupg"]
 
 [tui]
 status_line = ["project-root", "git-branch", "context-remaining", "used-tokens", "total-input-tokens", "total-output-tokens"]
@@ -47,6 +51,25 @@ enabled = true
 
 [plugins."figma@openai-curated"]
 enabled = true
+
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[plugins."computer-use@openai-bundled"]
+enabled = true
+
+[plugins."browser-use@openai-bundled"]
+enabled = true
+
+[plugins."chrome@openai-bundled"]
+enabled = true
+
 # chezmoi-managed:end
 
 {{- .chezmoi.stdin | replaceAllRegex "(?s)^# chezmoi-managed:start.*?# chezmoi-managed:end\n*" "\n\n" -}}
