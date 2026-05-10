@@ -29,3 +29,7 @@ Temporary Items
 # Claude Code
 **/.claude/settings.local.json
 **/.claude/plans
+
+# mise
+mise.local.toml
+mise.*.local.toml
