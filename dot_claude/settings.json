@@ -74,7 +74,8 @@
   },
   "language": "Japanese",
   "alwaysThinkingEnabled": true,
+  "effortLevel": "xhigh",
   "plansDirectory": ".claude/plans",
-  "effortLevel": "high",
-  "showThinkingSummaries": true
+  "showThinkingSummaries": true,
+  "model": "opus[1m]"
 }
