@@ -21,7 +21,7 @@ keybind = shift+enter=text:\x1b\r
 shell-integration-features = ssh-terminfo,ssh-env
 
 # クイックターミナルを設定
-quick-terminal-position = "bottom"
-quick-terminal-screen = "main"
-quick-terminal-animation-duration = 0
-keybind = "global:ctrl+alt+space=toggle_quick_terminal"
+#quick-terminal-position = "bottom"
+#quick-terminal-screen = "main"
+#quick-terminal-animation-duration = 0
+#keybind = "global:ctrl+alt+space=toggle_quick_terminal"
