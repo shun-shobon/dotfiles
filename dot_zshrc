@@ -87,6 +87,9 @@ eval "$(mise completion zsh)"
 # Starship読み込み
 eval "$(starship init zsh)"
 
+# GPG鍵をSSH鍵の代わりに使う
+gpg-connect-agent --quiet /bye
+
 # エイリアス設定
 alias ls="lsd"
 alias ll="ls -l"
