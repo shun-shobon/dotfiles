@@ -2,7 +2,7 @@
 # chezmoi-managed:start
 "$schema" = "https://developers.openai.com/codex/config-schema.json"
 model = "gpt-5.5"
-model_reasoning_effort = "high"
+model_reasoning_effort = "xhigh"
 plan_mode_reasoning_effort = "xhigh"
 service_tier = "fast"
 web_search = "live"
@@ -19,10 +19,11 @@ image_generation = true
 terminal_resize_reflow = true
 goals = true
 remote_connections = true
+default_mode_request_user_input = true
 
 [sandbox_workspace_write]
 network_access = true
-writable_roots = ["~/.npm", "~/Library/pnpm", "~/Library/Caches", "~/.cache", "~/.local/state/mise", "~/.local/share/mise", "~/.gnupg"]
+writable_roots = ["~/"]
 
 [tui]
 status_line = ["project-root", "git-branch", "context-remaining", "used-tokens", "total-input-tokens", "total-output-tokens"]
@@ -64,7 +65,7 @@ enabled = true
 [plugins."computer-use@openai-bundled"]
 enabled = true
 
-[plugins."browser-use@openai-bundled"]
+[plugins."browser@openai-bundled"]
 enabled = true
 
 [plugins."chrome@openai-bundled"]
