@@ -38,21 +38,14 @@
       "Bash(git stash:*)",
       "Bash(git switch:*)",
       "Bash(rm:*)"
-    ]
+    ],
+    "defaultMode": "auto"
   },
+  "model": "opus[1m]",
   "hooks": {
-    "Notification": [
+    "Stop": [
       {
-        "matcher": "permission_prompt",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash ~/.claude/notify.sh"
-          }
-        ]
-      },
-      {
-        "matcher": "idle_prompt",
+        "matcher": "",
         "hooks": [
           {
             "type": "command",
@@ -78,5 +71,5 @@
   "effortLevel": "xhigh",
   "plansDirectory": ".claude/plans",
   "showThinkingSummaries": true,
-  "model": "opus[1m]"
+  "skipAutoPermissionPrompt": true
 }
