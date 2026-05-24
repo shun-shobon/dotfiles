@@ -36,14 +36,13 @@ cargo-binstall = "latest"
 "github:k1LoW/git-wt" = "latest"
 
 # AI Tools
-codex = "latest"
-claude = "latest"
-gemini = "latest"
-opencode = "latest"
+codex = { version = "latest", minimum_release_age = "0d" }
+claude = { version = "latest", minimum_release_age = "0d" }
 
 [settings]
 experimental = true
 idiomatic_version_file_enable_tools = ["rust", "python", "node"]
+minimum_release_age = "3d"
 
 [settings.github]
 use_git_credentials = true
