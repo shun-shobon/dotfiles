@@ -7,12 +7,10 @@
     "allow": [
       "Bash(cat:*)",
       "Bash(find:*)",
-      "Bash(git:*)",
       "Bash(grep:*)",
       "Bash(head:*)",
       "Bash(ls:*)",
       "Bash(mkdir:*)",
-      "Bash(pnpm:*)",
       "Bash(rg:*)",
       "Bash(tail:*)",
       "Bash(tree:*)",
@@ -24,24 +22,18 @@
       "Write(./**)"
     ],
     "deny": [
-      "Bash(git push -f:*)",
       "Bash(npm:*)",
       "Bash(npx:*)",
-      "Bash(rm -rf:*)",
       "Read(**/.dev.vars)",
       "Read(**/.env.*)",
       "Read(**/.env)",
       "Read(**/.npmrc)"
     ],
     "ask": [
-      "Bash(git push:*)",
-      "Bash(git stash:*)",
-      "Bash(git switch:*)",
-      "Bash(rm:*)"
+      "Bash(git push:*)"
     ],
     "defaultMode": "auto"
   },
-  "model": "opus[1m]",
   "hooks": {
     "Stop": [
       {
@@ -66,15 +58,9 @@
       }
     ]
   },
-  "statusLine": {
-    "type": "command",
-    "command": "ccstatusline",
-    "padding": 0,
-    "refreshInterval": 10
-  },
   "enabledPlugins": {
-    "frontend-design@claude-plugins-official": true,
-    "example-skills@anthropic-agent-skills": true,
+    "frontend-design@claude-plugins-official": false,
+    "example-skills@anthropic-agent-skills": false,
     "typescript-lsp@claude-plugins-official": true
   },
   "language": "Japanese",
@@ -82,6 +68,8 @@
   "effortLevel": "xhigh",
   "plansDirectory": ".claude/plans",
   "showThinkingSummaries": true,
+  "skipDangerousModePermissionPrompt": true,
   "theme": "auto",
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "useAutoModeDuringPlan": true
 }
