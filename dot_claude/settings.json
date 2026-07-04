@@ -3,6 +3,11 @@
     "commit": "",
     "pr": ""
   },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh",
+    "refreshInterval": 1
+  },
   "permissions": {
     "allow": [
       "Bash(cat:*)",
