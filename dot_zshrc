@@ -53,10 +53,6 @@ export EDITOR="nvim"
 # キーバインドをemacsに
 bindkey -e
 
-# Google Cloud SDK用の設定
-if [[ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]]; then source "$HOME/google-cloud-sdk/path.zsh.inc"; fi
-if [[ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]]; then source "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
-
 # mise読み込み
 eval "$(mise activate zsh)"
 
