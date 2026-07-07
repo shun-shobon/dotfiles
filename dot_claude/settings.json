@@ -3,11 +3,6 @@
     "commit": "",
     "pr": ""
   },
-  "statusLine": {
-    "type": "command",
-    "command": "~/.claude/statusline.sh",
-    "refreshInterval": 1
-  },
   "permissions": {
     "allow": [
       "Bash(cat:*)",
@@ -39,6 +34,13 @@
     ],
     "defaultMode": "auto"
   },
+  "sandbox": {
+    "enabled": true,
+    "filesystem": {
+      "allowWrite": [".git"],
+      "denyRead": [".env", ".dev.vars"]
+    }
+  },
   "hooks": {
     "Stop": [
       {
@@ -63,10 +65,15 @@
       }
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh",
+    "refreshInterval": 1
+  },
   "enabledPlugins": {
-    "frontend-design@claude-plugins-official": false,
-    "example-skills@anthropic-agent-skills": false,
-    "typescript-lsp@claude-plugins-official": true
+    "typescript-lsp@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "codex@openai-codex": true
   },
   "language": "Japanese",
   "alwaysThinkingEnabled": true,
@@ -76,5 +83,6 @@
   "skipDangerousModePermissionPrompt": true,
   "theme": "auto",
   "skipAutoPermissionPrompt": true,
-  "useAutoModeDuringPlan": true
+  "useAutoModeDuringPlan": true,
+  "model": "claude-opus-4-7"
 }
