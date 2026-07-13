@@ -26,20 +26,12 @@
       "Bash(npx:*)",
       "Read(**/.dev.vars)",
       "Read(**/.env.*)",
-      "Read(**/.env)",
-      "Read(**/.npmrc)"
+      "Read(**/.env)"
     ],
     "ask": [
       "Bash(git push:*)"
     ],
     "defaultMode": "auto"
-  },
-  "sandbox": {
-    "enabled": true,
-    "filesystem": {
-      "allowWrite": [".git"],
-      "denyRead": [".env", ".dev.vars"]
-    }
   },
   "hooks": {
     "Stop": [
@@ -76,6 +68,18 @@
     "codex@openai-codex": true
   },
   "language": "Japanese",
+  "sandbox": {
+    "enabled": true,
+    "filesystem": {
+      "allowWrite": [
+        ".git"
+      ],
+      "denyRead": [
+        ".env",
+        ".dev.vars"
+      ]
+    }
+  },
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
   "plansDirectory": ".claude/plans",
@@ -83,6 +87,5 @@
   "skipDangerousModePermissionPrompt": true,
   "theme": "auto",
   "skipAutoPermissionPrompt": true,
-  "useAutoModeDuringPlan": true,
-  "model": "claude-opus-4-7"
+  "useAutoModeDuringPlan": true
 }
