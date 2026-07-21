@@ -12,7 +12,6 @@ terraform = "latest"
 # npm
 "pnpm" = "latest"
 "yarn" = "latest"
-"npm:@antfu/ni" = "latest"
 
 # Shell
 fnox = "latest"
@@ -26,6 +25,7 @@ zellij = "latest"
 difftastic = "latest"
 hyperfine = "latest"
 1password = "latest"
+gcloud = "latest"
 sccache = "latest"
 cargo-binstall = "latest"
 "cargo:cargo-outdated" = "latest"

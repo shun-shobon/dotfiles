@@ -87,3 +87,13 @@ context = '^chezmoi\s'
 name = "codex"
 trigger = "c"
 snippet = "codex"
+
+[[snippets]]
+name = "pnpm install"
+trigger = "ni"
+snippet = "pnpm install"
+
+[[snippets]]
+name = "pnpm run"
+trigger = "nr"
+snippet = "pnpm run"
