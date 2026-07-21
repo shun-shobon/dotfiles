@@ -1,65 +1,103 @@
 {{- /* chezmoi:modify-template */ -}}
 # chezmoi-managed:start
 "$schema" = "https://developers.openai.com/codex/config-schema.json"
-model = "gpt-5.5"
+model = "gpt-5.6-sol"
 model_reasoning_effort = "xhigh"
-plan_mode_reasoning_effort = "xhigh"
-service_tier = "fast"
+plan_mode_reasoning_effort = "ultra"
+service_tier = "priority"
 web_search = "live"
+model_reasoning_summary = "concise"
+model_verbosity = "low"
 personality = "pragmatic"
-file_opener = "cursor"
-suppress_unstable_features_warning = true
+multi_agent_mode = "proactive"
 approvals_reviewer = "auto_review"
+default_permissions= "workspace-safe"
+suppress_unstable_features_warning = true
 theme = "one-half-dark"
 
 [features]
 prevent_idle_sleep = true
-memories = true
 image_generation = true
-terminal_resize_reflow = true
-goals = true
 remote_connections = true
 default_mode_request_user_input = true
 
+[features.multi_agent_v2]
+enabled = true
+max_concurrent_threads_per_session = 4
+
 [sandbox_workspace_write]
 network_access = true
-writable_roots = ["~/"]
+
+[permissions.workspace-safe]
+extends = ":workspace"
+
+[permissions.workspace-safe.filesystem.":workspace_roots"]
+"**/*.env" = "deny"
 
 [tui]
 status_line = ["project-root", "git-branch", "context-remaining", "used-tokens", "total-input-tokens", "total-output-tokens"]
+
+[tui.model_availability_nux]
+"gpt-5.5" = 1
+"gpt-5.6-sol" = 4
 
 [notice]
 hide_full_access_warning = true
 hide_rate_limit_model_nudge = true
 
-[agents]
-max_threads = 24
-max_depth = 4
+[desktop]
+appearanceLightCodeThemeId = "one"
+appearanceDarkCodeThemeId = "one"
+usePointerCursors = true
+mac-menu-bar-enabled = false
+dictationDictionary = []
+followUpQueueMode = "steer"
+composerEnterBehavior = "enter"
+reviewDelivery = "detached"
+preventSleepWhileRunning = true
+keepRemoteControlAwakeWhilePluggedIn = true
+selected-avatar-id = "custom:luna"
+default-service-tier = "priority"
+avatar-overlay-mascot-width-px = 80
+dock-icon-preference = "codex-system"
 
-[agents.explorer]
-description = "Use `explorer` for specific codebase questions."
-config_file = "./agents/explorer.toml"
+[desktop.appearanceLightChromeTheme]
+accent = "#526fff"
+contrast = 45
+ink = "#383a42"
+opaqueWindows = false
+surface = "#fafafa"
 
-[agents.worker]
-description = "Use for execution and production work."
-config_file = "./agents/worker.toml"
+[desktop.appearanceLightChromeTheme.fonts]
+code = "'UDEV Gothic 35NFLG'"
 
-[mcp_servers.context7]
-url = "https://mcp.context7.com/mcp/oauth"
+[desktop.appearanceLightChromeTheme.semanticColors]
+diffAdded = "#3bba54"
+diffRemoved = "#e45649"
+skill = "#526fff"
+
+[desktop.appearanceDarkChromeTheme]
+accent = "#4d78cc"
+contrast = 60
+ink = "#abb2bf"
+opaqueWindows = false
+surface = "#282c34"
+
+[desktop.appearanceDarkChromeTheme.fonts]
+code = "'UDEV Gothic 35NFLG'"
+
+[desktop.appearanceDarkChromeTheme.semanticColors]
+diffAdded = "#8cc265"
+diffRemoved = "#e05561"
+skill = "#c162de"
+
+[desktop.open-in-target-preferences]
+global = "cursor"
 
 [plugins."github@openai-curated"]
 enabled = true
 
 [plugins."figma@openai-curated"]
-enabled = true
-
-[plugins."documents@openai-primary-runtime"]
-enabled = true
-
-[plugins."spreadsheets@openai-primary-runtime"]
-enabled = true
-
-[plugins."presentations@openai-primary-runtime"]
 enabled = true
 
 [plugins."computer-use@openai-bundled"]
@@ -69,6 +107,39 @@ enabled = true
 enabled = true
 
 [plugins."chrome@openai-bundled"]
+enabled = true
+
+[plugins."sites@openai-bundled"]
+enabled = true
+
+[plugins."template-creator@openai-primary-runtime"]
+enabled = true
+
+[plugins."pdf@openai-primary-runtime"]
+enabled = true
+
+[plugins."documents@openai-primary-runtime"]
+enabled = false
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = false
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = false
+
+[plugins."visualize@openai-bundled"]
+enabled = true
+
+[plugins."code-review@claude-plugins-official"]
+enabled = true
+
+[plugins."context7@claude-plugins-official"]
+enabled = true
+
+[plugins."pr-review-toolkit@claude-plugins-official"]
+enabled = true
+
+[plugins."codex@openai-codex"]
 enabled = true
 
 # chezmoi-managed:end
